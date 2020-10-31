@@ -29,15 +29,14 @@ public class CategoriaResource {
 	private CategoriaRepository categoriaRepository;
 
 	private ApplicationEventPublisher publisher;
+	
 	/* READ */
-
 	@GetMapping
 	public List<Categoria> listar() {
 		return categoriaRepository.findAll();
 	}
 
 	/* CREATE */
-
 	@PostMapping
 	public ResponseEntity<Categoria> criar(@Valid @RequestBody Categoria categoria, HttpServletResponse response) {
 		Categoria categoriaSalva = categoriaRepository.save(categoria);
@@ -46,7 +45,6 @@ public class CategoriaResource {
 	}
 
 	/* RETONAR CATEGORIA CRIADA */
-
 	@GetMapping("/{codigo}")
 	public ResponseEntity<Optional<Categoria>> buscarPeloCodigo(@PathVariable Long codigo) {
 
